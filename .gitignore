@@ -1,0 +1,28 @@
+# ========================
+# System generated files
+# ========================
+
+# macOS generated files
+.DS_Store
+
+# ========================
+# Node.js related files
+# ========================
+
+# Dependency directories
+node_modules/
+
+# ========================
+# Build output
+# ========================
+
+# Build directory
+build/
+dist/
+
+# ========================
+# IDEs and editors
+# ========================
+
+# JetBrains IDEs (e.g., WebStorm, IntelliJ)
+.idea/

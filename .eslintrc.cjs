@@ -3,6 +3,7 @@ module.exports = {
         'browser': true
     },
     root: true,
+    ignorePatterns: ['dist/**/*.js', 'build/**/*.js'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         project: './tsconfig.json',
@@ -26,5 +27,6 @@ module.exports = {
                 ignoreTemplateLiterals: true
             }
         ],
+        'import/no-extraneous-dependencies': 'off'
     },
 };

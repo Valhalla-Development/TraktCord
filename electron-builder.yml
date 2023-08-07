@@ -1,0 +1,10 @@
+appId: org.ValhallaDev.TraktCord
+mac:
+  category: public.app-category.entertainment
+win:
+  target:
+    - target: nsis
+      arch:
+        - x64
+files:
+  - build/index.js

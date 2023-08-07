@@ -3,27 +3,11 @@ import path from 'path';
 import {
     app, Menu, Tray,
 } from 'electron';
+import { isLaunchAtLogin, toggleLaunchAtLogin } from './utils.js';
 
 let tray: Tray;
 
 app.whenReady().then(() => {
-    // Check if login launch item is enabled
-    function isLaunchAtLogin() {
-        const settings = app.getLoginItemSettings();
-        if (platform === 'darwin') {
-            return settings.openAtLogin;
-        } if (platform === 'win32') {
-            return settings.launchItems.some((item) => item.name === 'TraktCord');
-        }
-        return false;
-    }
-
-    // Login launch item
-    function toggleLaunchAtLogin() {
-        const settings = app.getLoginItemSettings();
-        app.setLoginItemSettings({ openAtLogin: !settings.openAtLogin });
-    }
-
     if (platform === 'darwin') {
         app.dock.hide();
     }
@@ -35,12 +19,20 @@ app.whenReady().then(() => {
     const quitAccelerator = platform === 'darwin' ? 'Command+Q' : 'Ctrl+Q';
 
     const contextMenu = Menu.buildFromTemplate([
-        { label: 'placeholder', type: 'normal', click: () => console.log('placeholder clicked') },
+        { label: 'About TraktCord', type: 'normal' },
+        { label: 'Check for Update...', type: 'normal' },
+        { type: 'separator' },
+        { label: 'Status: (watching...)', enabled: false, type: 'normal' },
         { type: 'separator' },
         {
-            label: 'Launch at login', type: 'checkbox', checked: isLaunchAtLogin(), click: toggleLaunchAtLogin,
+            label: 'Authorise...', type: 'normal', enabled: true, click: () => console.log('placeholder clicked'),
         },
-        { label: 'Quit', accelerator: quitAccelerator, click: () => app.quit() },
+        {
+            label: 'Launch at Login', type: 'checkbox', checked: isLaunchAtLogin(app, platform), click: () => toggleLaunchAtLogin(app),
+        },
+        { label: 'Logout', type: 'normal', enabled: false },
+        { type: 'separator' },
+        { label: 'Quit TraktCord', accelerator: quitAccelerator, click: () => app.quit() },
     ]);
 
     tray.setContextMenu(contextMenu);

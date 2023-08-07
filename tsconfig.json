@@ -4,6 +4,8 @@
     "noImplicitAny": true,
     "sourceMap": true,
     "outDir": "build",
+    "allowJs": true,
+    "strict": true,
     "baseUrl": ".",
     "esModuleInterop": true,
     "paths": {

@@ -27,6 +27,8 @@ module.exports = {
                 ignoreTemplateLiterals: true
             }
         ],
-        'import/no-extraneous-dependencies': 'off'
+        'import/no-extraneous-dependencies': 'off',
+        'import/extensions': 'off',
+        'import/no-unresolved': 'off',
     },
 };

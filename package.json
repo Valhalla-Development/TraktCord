@@ -7,6 +7,9 @@
   "author": "Valhalla Development",
   "license": "GPL-3.0-or-later",
   "build": {
+    "files":[
+      "build/index.js"
+    ],
     "appId": "org.ValhallaDev.TraktCord",
     "mac": {
       "category": "public.app-category.entertainment"

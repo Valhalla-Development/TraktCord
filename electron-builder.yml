@@ -8,5 +8,6 @@ win:
         - x64
 files:
   - build/index.js
+  - build/utils.js
 extraResources:
   - ./assets/**

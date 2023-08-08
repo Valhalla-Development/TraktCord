@@ -35,5 +35,6 @@ app.whenReady().then(() => {
         { label: 'Quit TraktCord', accelerator: quitAccelerator, click: () => app.quit() },
     ]);
 
+    tray.setToolTip('TraktCord'); // TODO This will state the status, paused, not watching, watching, not authorised etc.
     tray.setContextMenu(contextMenu);
 });

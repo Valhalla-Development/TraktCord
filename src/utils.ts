@@ -1,14 +1,17 @@
 import { app } from 'electron';
 
 // Check if login launch item is enabled
-export function isLaunchAtLogin(appInstance: typeof app, platform: string) {
+export function isLaunchAtLogin(appInstance: typeof app, platform: string): boolean {
     const settings = appInstance.getLoginItemSettings();
-    if (platform === 'darwin') {
+
+    switch (platform) {
+    case 'darwin':
         return settings.openAtLogin;
-    } if (platform === 'win32') {
+    case 'win32':
         return settings.launchItems.some((item: { name: string }) => item.name === 'TraktCord');
+    default:
+        return false;
     }
-    return false;
 }
 
 // Login launch item

@@ -12,6 +12,9 @@
     "start": "tsc && electron ./build/index.js",
     "buildapp": "tsc && electron-builder build --publish always"
   },
+  "dependencies": {
+    "electron-store": "^8.1.0"
+  },
   "devDependencies": {
     "@types/electron-positioner": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^6.2.1",

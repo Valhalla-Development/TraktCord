@@ -12,7 +12,23 @@
     "start": "tsc && electron ./build/index.js",
     "buildapp": "tsc && electron-builder"
   },
+  "config": {
+    "forge": {
+      "publishers": [
+        {
+          "name": "@electron-forge/publisher-github",
+          "config": {
+            "repository": {
+              "owner": "Valhalla-Development",
+              "name": "TraktCord"
+            }
+          }
+        }
+      ]
+    }
+  },
   "devDependencies": {
+    "@electron-forge/publisher-github": "^6.3.0",
     "@types/electron-positioner": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",

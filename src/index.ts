@@ -12,6 +12,8 @@ const store = new Store();
 let tray: Tray;
 
 app.whenReady().then(() => {
+    Menu.setApplicationMenu(null);
+
     if (platform === 'darwin') {
         app.dock.hide();
     }

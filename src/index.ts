@@ -3,11 +3,13 @@ import path from 'path';
 import {
     app, Menu, Tray, nativeImage,
 } from 'electron';
-import { isLaunchAtLogin, toggleLaunchAtLogin, aboutItem } from './utils.js';
+import Store from 'electron-store';
+import {
+    isLaunchAtLogin, toggleLaunchAtLogin, aboutItem, login,
+} from './utils.js';
 
+const store = new Store();
 let tray: Tray;
-
-// test
 
 app.whenReady().then(() => {
     if (platform === 'darwin') {
@@ -29,7 +31,7 @@ app.whenReady().then(() => {
         { label: 'Status: (watching...)', enabled: false, type: 'normal' },
         { type: 'separator' },
         {
-            label: 'Authorise...', type: 'normal', enabled: true, click: () => console.log('placeholder clicked'),
+            label: 'Login...', type: 'normal', enabled: true, click: () => login(store, trayIcon),
         },
         {
             label: 'Launch at Login', type: 'checkbox', checked: isLaunchAtLogin(app, platform), click: () => toggleLaunchAtLogin(app),

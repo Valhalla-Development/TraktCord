@@ -1,9 +1,9 @@
 import { platform } from 'node:process';
 import path from 'path';
 import {
-    app, Menu, Tray,
+    app, Menu, Tray, nativeImage,
 } from 'electron';
-import { isLaunchAtLogin, toggleLaunchAtLogin } from './utils.js';
+import { isLaunchAtLogin, toggleLaunchAtLogin, aboutItem } from './utils.js';
 
 let tray: Tray;
 
@@ -14,12 +14,14 @@ app.whenReady().then(() => {
 
     const assetsPath = app.isPackaged ? path.join(process.resourcesPath, 'assets') : 'assets';
 
-    tray = new Tray(`${assetsPath}/Icon.png`);
+    const trayIcon = nativeImage.createFromPath(`${assetsPath}/Icon.png`); // TODO this logo is just the Trakt logo, it is a placeholder until I get the custom logo made
+
+    tray = new Tray(trayIcon);
 
     const quitAccelerator = platform === 'darwin' ? 'Command+Q' : 'Ctrl+Q';
 
     const contextMenu = Menu.buildFromTemplate([
-        { label: 'About TraktCord', type: 'normal' },
+        { label: 'About TraktCord', type: 'normal', click: () => aboutItem(trayIcon) },
         { label: 'Check for Update...', type: 'normal' },
         { type: 'separator' },
         { label: 'Status: (watching...)', enabled: false, type: 'normal' },

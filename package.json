@@ -1,7 +1,7 @@
 {
   "name": "TraktCord",
   "main": "build/index.js",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Set your Discord presence according to what you are watching on Trakt",
   "repository": "https://github.com/Valhalla-Development/TraktCord.git",
   "author": "Valhalla Development",

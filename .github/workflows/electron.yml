@@ -12,13 +12,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@master
         with:
-          node-version: 14
+          node-version: 16
       - name: install dependencies
         run: npm install
       - name: publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run publish
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run buildapp
 
   publish_on_win:
     runs-on: windows-latest
@@ -26,10 +26,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@master
         with:
-          node-version: 14
+          node-version: 16
       - name: install dependencies
         run: npm install
       - name: publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm run publish
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run buildapp

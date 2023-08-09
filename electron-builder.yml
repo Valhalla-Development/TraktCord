@@ -2,6 +2,11 @@ appId: org.ValhallaDev.TraktCord
 mac:
   category: public.app-category.entertainment
 win:
+  publish:
+    # an object provider for github with additional options
+    - provider: github
+      protocol: https
+
   target:
     - target: nsis
       arch:

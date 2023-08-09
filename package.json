@@ -10,26 +10,9 @@
     "build": "tsc",
     "watch": "tsc -w",
     "start": "tsc && electron ./build/index.js",
-    "buildapp": "tsc && electron-builder"
-  },
-  "config": {
-    "forge": {
-      "publishers": [
-        {
-          "draft": true,
-          "name": "@electron-forge/publisher-github",
-          "config": {
-            "repository": {
-              "owner": "Valhalla-Development",
-              "name": "TraktCord"
-            }
-          }
-        }
-      ]
-    }
+    "buildapp": "tsc && electron-builder build --publish always"
   },
   "devDependencies": {
-    "@electron-forge/publisher-github": "^6.3.0",
     "@types/electron-positioner": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^6.2.1",
     "@typescript-eslint/parser": "^6.2.1",

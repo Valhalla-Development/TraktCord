@@ -7,6 +7,8 @@ import { isLaunchAtLogin, toggleLaunchAtLogin, aboutItem } from './utils.js';
 
 let tray: Tray;
 
+// test
+
 app.whenReady().then(() => {
     if (platform === 'darwin') {
         app.dock.hide();

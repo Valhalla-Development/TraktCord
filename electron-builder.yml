@@ -16,3 +16,8 @@ files:
   - build/utils.js
 extraResources:
   - ./assets/**
+build:
+  nsis:
+    differentialPackage: false
+  dmg:
+    writeUpdateInfo: false

@@ -17,7 +17,7 @@ jobs:
         run: npm install
       - name: publish
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm run buildapp
 
   publish_on_win:

@@ -1,10 +1,7 @@
 appId: org.ValhallaDev.TraktCord
 mac:
   category: public.app-category.entertainment
-
-  target:
-    - target: dmg
-      writeUpdateInfo: false
+  generateUpdatesFilesForAllChannels: false
 win:
   publish:
     # an object provider for github with additional options
@@ -13,9 +10,9 @@ win:
 
   target:
     - target: nsis
-      differentialPackage: false
       arch:
         - x64
+  generateUpdatesFilesForAllChannels: false
 files:
   - build/index.js
   - build/utils.js

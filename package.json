@@ -10,7 +10,7 @@
     "build": "tsc",
     "watch": "tsc -w",
     "start": "tsc && electron ./build/index.js",
-    "buildapp": "tsc && electron-builder build --publish always"
+    "buildapp": "set GH_TOKEN=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 && tsc && electron-builder build --publish always"
   },
   "dependencies": {
     "electron-store": "^8.1.0"

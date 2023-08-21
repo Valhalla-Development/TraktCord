@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 16
-      - name: install dependencies
+      - name: Install dependencies
         run: npm install
       - name: publish
         env:
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 16
-      - name: install dependencies
+      - name: Install dependencies
         run: npm install
       - name: publish
         env:

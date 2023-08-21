@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  publish_on_mac:
+  mac_build:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: npm run buildapp
 
-  publish_on_win:
+  windows_build:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2

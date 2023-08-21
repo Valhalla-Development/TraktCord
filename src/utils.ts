@@ -3,7 +3,13 @@ import {
 } from 'electron';
 import Store from 'electron-store';
 
-// Check if login launch item is enabled
+/**
+ * Checks if the login launch item is enabled.
+ *
+ * @param {typeof app} appInstance - The Electron app instance.
+ * @param {string} platform - The platform name ('darwin' for macOS, 'win32' for Windows).
+ * @returns {boolean} True if the launch item is enabled, otherwise false.
+ */
 export function isLaunchAtLogin(appInstance: typeof app, platform: string): boolean {
     const settings = appInstance.getLoginItemSettings();
 
@@ -17,13 +23,21 @@ export function isLaunchAtLogin(appInstance: typeof app, platform: string): bool
     }
 }
 
-// Login launch item
+/**
+ * Toggles the login launch item.
+ *
+ * @param {typeof app} appInstance - The Electron app instance.
+ */
 export function toggleLaunchAtLogin(appInstance: typeof app) {
     const settings = appInstance.getLoginItemSettings();
     appInstance.setLoginItemSettings({ openAtLogin: !settings.openAtLogin });
 }
 
-// About menu
+/**
+ * Displays an "About" dialog.
+ *
+ * @param {NativeImage} trayIcon - The tray icon image.
+ */
 export async function aboutItem(trayIcon: NativeImage) {
     const options = {
         message: 'TraktCord',
@@ -36,7 +50,13 @@ export async function aboutItem(trayIcon: NativeImage) {
     await dialog.showMessageBox(options);
 }
 
-// Auth menu
+/**
+ * Displays an authorization prompt window and returns the Trakt Client ID.
+ *
+ * @param {Store} store - The Electron store instance.
+ * @param {NativeImage} trayIcon - The tray icon image.
+ * @returns {Promise<string>} A promise that resolves with the entered Trakt Client ID.
+ */
 export async function login(store: Store, trayIcon: NativeImage) {
     const promptWindow = new BrowserWindow({
         width: 400,
